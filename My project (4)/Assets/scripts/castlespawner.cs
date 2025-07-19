@@ -5,11 +5,12 @@ using UnityEngine;
 public class castlespawner : MonoBehaviour
 {
     // Start is called before the first frame update
-    public enemyWave enemyWave;
+    
     public GameObject enemyOne;
     public GameObject enemyTwo;
-    public float gameSpeed;
+     float gameSpeed;
     public string wave= "1..1..1..111";
+    public point.direction facing;
     void Awake()
     {
         gameSpeed = gameManager.Instance.gamespeed;
@@ -28,6 +29,7 @@ public class castlespawner : MonoBehaviour
             }
             else
             {
+                yield return new WaitForSecondsRealtime(gameSpeed);
                 instantiateEnemy(action);
             }
         }
@@ -38,13 +40,20 @@ public class castlespawner : MonoBehaviour
 
     void instantiateEnemy(char enemy)
     {
+        GameObject newEnemy=null;
         if (enemy == '1')
         {
-           Instantiate(enemyOne);
+           newEnemy = Instantiate(enemyOne);
+
         }
         else if (enemy == '2')
         {
-            Instantiate(enemyTwo);
+            newEnemy = Instantiate(enemyTwo);
+        }
+        if (newEnemy != null)
+        {
+            newEnemy.GetComponent<enemyMover>().changeDirection(facing);
+            newEnemy.transform.position = transform.position;
         }
     }
     // Update is called once per frame
