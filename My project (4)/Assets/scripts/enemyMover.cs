@@ -22,7 +22,9 @@ public class enemyMover : MonoBehaviour
         if ( movepoint!= null)
         {
             changeDirection(movepoint.sendDirection);
+            Debug.Log(collision.gameObject.name);
         }
+       
 
 
     }
