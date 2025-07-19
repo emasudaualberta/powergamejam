@@ -8,7 +8,7 @@ public class enemyMover : MonoBehaviour
     point.direction currentdirection;
     int xdir=1;
     int ydir =0;
-    int speed=1;
+    int speed=5;
 
     // Start is called before the first frame update
     void Start()
@@ -21,8 +21,15 @@ public class enemyMover : MonoBehaviour
         point movepoint = collision.gameObject.GetComponent<point>();
         if ( movepoint!= null)
         {
+
+            if (movepoint.isEnd) {
+                gameManager.Instance.hp -= 1;
+                Debug.Log(gameManager.Instance.hp);
+                Destroy(gameObject);
+            }
             changeDirection(movepoint.sendDirection);
             Debug.Log(collision.gameObject.name);
+
         }
        
 
