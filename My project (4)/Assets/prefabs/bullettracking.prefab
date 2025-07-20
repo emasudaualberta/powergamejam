@@ -46,6 +46,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trackingObject: {fileID: 0}
+  speed: 0.5
+  damage: 50
 --- !u!212 &2664303195133892023
 SpriteRenderer:
   m_ObjectHideFlags: 0
