@@ -19,33 +19,23 @@ public class enemyMover : MonoBehaviour
     {
         
     }
+
     void OnTriggerEnter2D(Collider2D collision)
     {
         point movepoint = collision.gameObject.GetComponent<point>();
         if ( movepoint!= null)
         {
-
             if (movepoint.isEnd) {
                 gameManager.Instance.hp -= 1;
                 Debug.Log(gameManager.Instance.hp);
                 Destroy(gameObject);
             }
             changeDirection(movepoint.sendDirection);
-
-        }else if (collision.tag == "weapon")
-        {
-            
-            Destroy(collision.gameObject);
-            health -= 1000;
-            if (health < 0) {
-                Destroy(gameObject);
-            }
-        }
-
-       
-
+        } 
 
     }
+
+
     public void changeDirection(point.direction newDirection)
     {
         switch (newDirection)
@@ -69,10 +59,17 @@ public class enemyMover : MonoBehaviour
                 break;
 
         }
-
-
     }
    
+    public void TakeDamage(int dmg)
+    {
+        health -= dmg;
+        if (health <= 0) {
+                Destroy(gameObject);
+        }
+    } 
+
+
 
     // Update is called once per frame
     void Update()
