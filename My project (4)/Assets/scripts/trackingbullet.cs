@@ -8,6 +8,8 @@ public class trackingbullet : MonoBehaviour
     public GameObject trackingObject;
     [Range(0.0f, 1.0f)] public float speed = 0.5f;
     public int damage = 50;
+    public bool explodes = false;
+    public GameObject explosion;
     Vector3 lastpos;
     // Start is called before the first frame update
     void Start()
@@ -44,4 +46,12 @@ public class trackingbullet : MonoBehaviour
             Destroy(gameObject);
         } 
     }
+
+    void OnDestroy() {
+        if (explodes){
+        Debug.Log("BOOMB");
+        Instantiate(explosion,transform.position, Quaternion.identity);
+        }
+    }
+
 }

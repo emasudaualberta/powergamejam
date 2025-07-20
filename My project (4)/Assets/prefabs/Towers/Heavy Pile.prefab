@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: -405731348138291862}
   - component: {fileID: 2559534926506358233}
   m_Layer: 0
-  m_Name: Wizard Pile
+  m_Name: Heavy Pile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,7 +43,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -63,9 +63,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wizards: 1
   powerPerWiz: 10
-  SpawnedEnitity: {fileID: 2192739248297495550, guid: 9aa2ece1bc94bb44ea6d34a4c7b0e32b,
+  shotDelay: 850
+  SpawnedEnitity: {fileID: 2192739248297495550, guid: 20e8119fcd5a4a24d856989e5357d1af,
     type: 3}
-  Projectile: {fileID: 2664303195133892020, guid: adfb247539686f942b24f4539e20fe60,
+  Projectile: {fileID: 2664303195133892020, guid: 8cadb20276130fb44827a668f6e7b056,
     type: 3}
 --- !u!1 &2559534926714504595
 GameObject:
@@ -137,7 +138,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: c478c9fc8c792e1439699658c3dbd5d5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ee633852f582d3b48bd56a20387d8022, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
