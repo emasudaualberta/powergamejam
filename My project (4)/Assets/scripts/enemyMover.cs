@@ -11,8 +11,9 @@ public class enemyMover : MonoBehaviour
     point.direction currentdirection;
     int xdir=1;
     int ydir =0;
-    int speed=5;
+    public int speed=5;
     public int health=100;
+    public GameObject explode;
 
     // Start is called before the first frame update
     void Start()
@@ -65,7 +66,11 @@ public class enemyMover : MonoBehaviour
     {
         health -= dmg;
         if (health <= 0) {
-                Destroy(gameObject);
+            
+            GameObject boom =  Instantiate(explode);
+            boom.transform.position = transform.position;
+
+            Destroy(gameObject);
         }
     } 
 
@@ -77,8 +82,9 @@ public class enemyMover : MonoBehaviour
         transform.position += new Vector3(xdir * Time.deltaTime*speed, ydir * Time.deltaTime * speed,0);
     }
 
-    private void OnDestroy()
+     void OnDestroy()
     {
-        //GameResource.Instance.KillReward(manaReward, powerReward);
+        
+        GameResource.Instance.KillReward(manaReward, powerReward);
     }
 }
