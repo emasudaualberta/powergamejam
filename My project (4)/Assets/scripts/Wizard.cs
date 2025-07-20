@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Wizard : MonoBehaviour
 {
+    private int maxMana = 20;
+    private int mana = 20;
     public int weaponswitch = 0;
     public float moveSpeed = 5f;
     private Rigidbody2D rb;
@@ -61,7 +63,12 @@ public class Wizard : MonoBehaviour
         }
         if(Input.GetKeyDown(KeyCode.F) && onGrass == true)
         {
-            GameObject tower = Instantiate(currentTower, transform.position, Quaternion.identity);
+            int towerMana = currentTower.GetComponent<wizardpile>().GetMana();
+            if(towerMana <= mana)
+            {
+                GameObject tower = Instantiate(currentTower, transform.position, Quaternion.identity);
+                this.mana -= towerMana;
+            }
         }
         if(Input.GetKeyDown(KeyCode.Q))
         {
@@ -130,6 +137,16 @@ public class Wizard : MonoBehaviour
     {
         Debug.Log(target.transform.name);
         onGrass = false;
+    }
+
+    public int GetMana()
+    {
+        return this.mana;
+    }
+
+    public int GetMaxMana()
+    {
+        return this.maxMana;
     }
 
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class wizardpile : MonoBehaviour
 {
 
-
+    [SerializeField] private int mana = 5;
     public int wizards = 1;
     public int powerPerWiz = 10;
     [Range(0.0f,1000f)]
@@ -75,6 +75,8 @@ public class wizardpile : MonoBehaviour
         }
     }
 
-
-
+    public int GetMana()
+    {
+        return this.mana;
+    }
 }
