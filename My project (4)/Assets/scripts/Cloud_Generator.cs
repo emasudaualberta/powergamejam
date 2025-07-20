@@ -5,15 +5,15 @@ using UnityEngine;
 public class Cloud_Generator : MonoBehaviour
 {
     // Start is called before the first frame update
-    public int cooldown = 500;
+    public float cooldown = 500f;
     public GameObject cloud;
     [Range(0.0f, 1.0f)]
     public float phase;
-    int currentcool;
+    float currentcool;
 
     void Start()
     {
-        currentcool = Mathf.RoundToInt((1f - phase)*cooldown);
+        currentcool = (1f - phase)*cooldown ;
     }
 
     // Update is called once per frame
@@ -24,7 +24,7 @@ public class Cloud_Generator : MonoBehaviour
             Instantiate(cloud,this.transform);
             currentcool = cooldown;
         } else {
-        currentcool -= 1;
+        currentcool -= Time.deltaTime*100f;
         }
     }
 }

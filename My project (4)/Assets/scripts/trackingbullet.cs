@@ -6,7 +6,10 @@ public class trackingbullet : MonoBehaviour
 {
 
     public GameObject trackingObject;
+    [Range(0.0f, 1.0f)] public float speed = 0.5f;
     public int damage = 50;
+    public bool explodes = false;
+    public GameObject explosion;
     Vector3 lastpos;
     // Start is called before the first frame update
     void Start()
@@ -30,8 +33,10 @@ public class trackingbullet : MonoBehaviour
         {
             Destroy(gameObject);
         }
-       
-        transform.position = Vector3.MoveTowards(transform.position, lastpos, 6 * Time.deltaTime);
+
+        Vector3 delta = lastpos-transform.position;
+        transform.position = transform.position + delta.normalized*speed*Time.deltaTime*50f;
+        transform.rotation = Quaternion.AngleAxis(Vector3.Angle(Vector3.up,delta)*Mathf.Sign(-delta.x), Vector3.forward);
     }
 
     void OnTriggerEnter2D(Collider2D collision) {
@@ -41,4 +46,12 @@ public class trackingbullet : MonoBehaviour
             Destroy(gameObject);
         } 
     }
+
+    void OnDestroy() {
+        if (explodes){
+        Debug.Log("BOOMB");
+        Instantiate(explosion,transform.position, Quaternion.identity);
+        }
+    }
+
 }

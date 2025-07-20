@@ -46,7 +46,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trackingObject: {fileID: 0}
+  speed: 0.5
   damage: 50
+  explodes: 0
+  explosion: {fileID: 3986762540778233181, guid: 8d847411f30ba4f40a07f843c83b2f0a,
+    type: 3}
 --- !u!212 &2664303195133892023
 SpriteRenderer:
   m_ObjectHideFlags: 0
