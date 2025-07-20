@@ -196,7 +196,9 @@ public class Wizard : MonoBehaviour
         {
             image.GetComponent<Image>().sprite = OrbProjectile.GetComponentInChildren<SpriteRenderer>().sprite;
         }
-        else if (weaponswitch == 2) { }
-        
+        else if (weaponswitch == 2)
+        {
+            image.GetComponent<Image>().sprite = TargetProjectile.GetComponentInChildren<SpriteRenderer>().sprite;
+        }
     }
 }
