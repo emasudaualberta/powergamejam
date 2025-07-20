@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class gameManager : MonoBehaviour
 {
@@ -25,6 +26,14 @@ public class gameManager : MonoBehaviour
 
             return _instance;
         }
+    }
+
+
+    public void takeDamage()
+    {
+        hp--;
+        GameObject.FindGameObjectWithTag("hp").gameObject.GetComponent<TextMeshPro>().text = $"HP:{hp}";
+        if (hp <= 0) { }
     }
 
     void Awake()

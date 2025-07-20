@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -79,6 +80,7 @@ public class Wizard : MonoBehaviour
             {
                 GameObject tower = Instantiate(currentTower, transform.position, Quaternion.identity);
                 this.mana -= towerMana;
+                GameObject.FindGameObjectWithTag("mana").gameObject.GetComponent<TextMeshPro>().text = $"MANA:{mana}";
             }
         }
         if(Input.GetKeyDown(KeyCode.Q))

@@ -27,7 +27,8 @@ public class enemyMover : MonoBehaviour
         if ( movepoint!= null)
         {
             if (movepoint.isEnd) {
-                gameManager.Instance.hp -= 1;
+                gameManager.Instance.takeDamage();
+
                 Debug.Log(gameManager.Instance.hp);
                 Destroy(gameObject);
             }
