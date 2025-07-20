@@ -74,7 +74,7 @@ public class Wizard : MonoBehaviour
         {
             if(towerIndex <= 0)
             {
-                towerIndex = validTowers.Length;
+                towerIndex = validTowers.Length - 1;
             } else {
                 towerIndex -= 1;
             }
@@ -129,8 +129,10 @@ public class Wizard : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D target)
     {
-        Debug.Log(target.transform.name);
-        onGrass = true;
+        if(target.transform.name == "Tilemap")
+        {
+            onGrass = true;
+        }  
     }
 
     void OnTriggerExit2D(Collider2D target)
