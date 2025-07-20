@@ -42,6 +42,8 @@ public class castlespawner : MonoBehaviour
             }
             Debug.Log("end");
         }
+        yield return new WaitForSecondsRealtime(7);
+        gameManager.Instance.doneSpawn();
 
     }
 
