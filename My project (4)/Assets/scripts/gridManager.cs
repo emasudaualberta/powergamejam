@@ -18,7 +18,7 @@ public class gridManager : MonoBehaviour
     {
         for(int i = 0; i < width; i++)
         {
-            for(int j = 0; i < width; j++)
+            for(int j = 0; j < height; j++)
             {
                 var spawnedTile = Instantiate(_tile, new Vector3(i, j), Quaternion.identity);
                 spawnedTile.name = $"tile {i} {j}";

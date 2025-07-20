@@ -17,18 +17,18 @@ public class enemyMover : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("as;df");
+        //Debug.Log("as;df");
         point movepoint = collision.gameObject.GetComponent<point>();
         if ( movepoint!= null)
         {
 
             if (movepoint.isEnd) {
                 gameManager.Instance.hp -= 1;
-                Debug.Log(gameManager.Instance.hp);
+                //Debug.Log(gameManager.Instance.hp);
                 Destroy(gameObject);
             }
             changeDirection(movepoint.sendDirection);
-            Debug.Log(collision.gameObject.name);
+            //Debug.Log(collision.gameObject.name);
 
         }
        
