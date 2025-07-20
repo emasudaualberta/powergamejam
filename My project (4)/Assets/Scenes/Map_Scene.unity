@@ -16094,7 +16094,7 @@ PrefabInstance:
     - target: {fileID: 8247814812809819683, guid: 62f3d0cfcbf818a42a4019dff0389fb3,
         type: 3}
       propertyPath: validTowers.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8247814812809819683, guid: 62f3d0cfcbf818a42a4019dff0389fb3,
         type: 3}
@@ -16106,6 +16106,12 @@ PrefabInstance:
       propertyPath: validTowers.Array.data[1]
       value: 
       objectReference: {fileID: 1097208101}
+    - target: {fileID: 8247814812809819683, guid: 62f3d0cfcbf818a42a4019dff0389fb3,
+        type: 3}
+      propertyPath: validTowers.Array.data[2]
+      value: 
+      objectReference: {fileID: 2559534926506358235, guid: 72a6743efda3f5e41b0d07b884c409df,
+        type: 3}
     - target: {fileID: 8247814812809819686, guid: 62f3d0cfcbf818a42a4019dff0389fb3,
         type: 3}
       propertyPath: m_Name
