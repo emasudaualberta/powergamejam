@@ -9,13 +9,20 @@ public class trackingbullet : MonoBehaviour
     [Range(0.0f, 1.0f)] public float speed = 0.5f;
     public int damage = 50;
     public bool explodes = false;
+    public bool electric = false;
+    [Range(0.0f, 1.0f)] public float elrange = 0.5f;
     public GameObject explosion;
     Vector3 lastpos;
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (electric) {
+            List<GameObject> enemyQ = 
+        }
     }
+
+
+
     public void setTarget(GameObject target)
     {
         trackingObject = target;
@@ -27,8 +34,8 @@ public class trackingbullet : MonoBehaviour
         if (trackingObject != null)
         {
             lastpos = trackingObject.transform.position;
-
         }
+
         else
         {
             Destroy(gameObject);
@@ -43,15 +50,19 @@ public class trackingbullet : MonoBehaviour
         GameObject tHit = collision.gameObject;
         if (collision.tag == "enemy") {
             tHit.GetComponent<enemyMover>().TakeDamage(damage);
-            Destroy(gameObject);
+            if (!electric) {
+                Destroy(gameObject);
+            } else {
+                
+            }
+            
         } 
     }
 
     void OnDestroy() {
-        if (explodes){
+        if (explodes) {
         Debug.Log("BOOMB");
         Instantiate(explosion,transform.position, Quaternion.identity);
         }
     }
-
 }
