@@ -35,6 +35,7 @@ public class Wizard : MonoBehaviour
         }
         changetowerui();
         changeGunUI();
+        GameObject.FindGameObjectWithTag("mana").GetComponent<TextMeshProUGUI>().text = $"MANA:{mana}";
     }
 
     void Movement()
@@ -85,7 +86,7 @@ public class Wizard : MonoBehaviour
             {
                 GameObject tower = Instantiate(currentTower, transform.position, Quaternion.identity);
                 this.mana -= towerMana;
-                GameObject.FindGameObjectWithTag("mana").gameObject.GetComponent<TextMeshPro>().text = $"MANA:{mana}";
+                GameObject.FindGameObjectWithTag("mana").GetComponent<TextMeshProUGUI>().text = $"MANA:{mana}";
             }
         }
         if(Input.GetKeyDown(KeyCode.Q))
@@ -117,6 +118,7 @@ public class Wizard : MonoBehaviour
             {
                 this.mana += 1;
                 timePeriod = 0;
+                GameObject.FindGameObjectWithTag("mana").GetComponent<TextMeshProUGUI>().text = $"MANA:{mana}";
             }
         }
         timePeriod += UnityEngine.Time.deltaTime;

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class gameManager : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class gameManager : MonoBehaviour
     public int hp = 100;
     void Start()
     {
-        
+        takeDamage();
     }
 
     private static gameManager _instance;
@@ -32,8 +33,10 @@ public class gameManager : MonoBehaviour
     public void takeDamage()
     {
         hp--;
-        GameObject.FindGameObjectWithTag("hp").gameObject.GetComponent<TextMeshPro>().text = $"HP:{hp}";
-        if (hp <= 0) { }
+        GameObject.FindGameObjectWithTag("hp").GetComponent<TextMeshProUGUI>().text = $"HP:{hp}";
+        if (hp <= 0) {
+            SceneManager.LoadScene(2);
+        }
     }
 
     void Awake()
