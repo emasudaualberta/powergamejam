@@ -12496,6 +12496,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &289791058 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2559534926506358235, guid: 1d5f4365cb8d5354f9dc311b90bde18b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1169871054}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &333572629
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15110,6 +15116,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8247814812809819683, guid: 62f3d0cfcbf818a42a4019dff0389fb3,
+        type: 3}
+      propertyPath: currentTower
+      value: 
+      objectReference: {fileID: 289791058}
     - target: {fileID: 8247814812809819683, guid: 62f3d0cfcbf818a42a4019dff0389fb3,
         type: 3}
       propertyPath: BombProjectile
