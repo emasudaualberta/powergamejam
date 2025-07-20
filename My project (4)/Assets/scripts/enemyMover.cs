@@ -20,7 +20,6 @@ public class enemyMover : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("as;df");
         point movepoint = collision.gameObject.GetComponent<point>();
         if ( movepoint!= null)
         {
@@ -31,7 +30,6 @@ public class enemyMover : MonoBehaviour
                 Destroy(gameObject);
             }
             changeDirection(movepoint.sendDirection);
-            Debug.Log(collision.gameObject.name);
 
         }
        
