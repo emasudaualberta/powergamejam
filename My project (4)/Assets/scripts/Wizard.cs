@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Wizard : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class Wizard : MonoBehaviour
     private Vector2 movement;
     private bool onGrass = false;
 
+    public GameObject TargetProjectile;
     public GameObject BombProjectile;
     public GameObject OrbProjectile;
     [SerializeField] private GameObject currentTower;
@@ -25,6 +27,8 @@ public class Wizard : MonoBehaviour
         {
             Debug.LogError("afgsh");
         }
+        changetowerui();
+        changeGunUI();
     }
 
     void Movement()
@@ -41,15 +45,19 @@ public class Wizard : MonoBehaviour
     {
         //r to shoot bombs
         Movement();
-        if(Input.GetKeyDown(KeyCode.E))
+        if(Input.GetKeyDown(KeyCode.V))
         {
             if (weaponswitch == 0)
             {
                 weaponswitch = 1;
             } else if (weaponswitch == 1)
             {
+                weaponswitch = 2;
+            } else if (weaponswitch == 2)
+            {
                 weaponswitch = 0;
             }
+            changeGunUI();
         }
         if (Input.GetKeyDown(KeyCode.R))
         {
@@ -59,6 +67,9 @@ public class Wizard : MonoBehaviour
             } else if (weaponswitch == 1)
             {
                 InstantiateOrb();
+            } else if (weaponswitch == 2)
+            {
+                InstantiatePlane();
             }
         }
         if(Input.GetKeyDown(KeyCode.F) && onGrass == true)
@@ -78,7 +89,9 @@ public class Wizard : MonoBehaviour
             } else {
                 towerIndex -= 1;
             }
+            
             currentTower = validTowers[towerIndex];
+            changetowerui();
         }
         if(Input.GetKeyUp(KeyCode.E))
         {
@@ -89,6 +102,7 @@ public class Wizard : MonoBehaviour
                 towerIndex += 1;
             }
             currentTower = validTowers[towerIndex];
+            changetowerui();
         }
     }
     void InstantiateBomb()
@@ -121,6 +135,19 @@ public class Wizard : MonoBehaviour
             rbProjectile.velocity = direction * 9;
         }
     }
+    void InstantiatePlane()
+    {
+        //get mouse position
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePos.z = 0;
+        //create target an shoot them in direction
+        GameObject Target = Instantiate(TargetProjectile, mousePos, Quaternion.identity);
+        Rigidbody2D rbProjectile = Target.GetComponent<Rigidbody2D>();
+        if (rbProjectile != null)
+        {
+            rbProjectile.velocity = Vector2.zero;
+        }
+    }
     void FixedUpdate()
     {
         // Apply movement
@@ -150,5 +177,32 @@ public class Wizard : MonoBehaviour
     {
         return this.maxMana;
     }
+    public GameObject getCurrentTower()
+    {
+        return this.currentTower;
+    }
 
+    void changetowerui()
+    {
+        GameObject image = GameObject.FindGameObjectWithTag("towerimage");
+        image.GetComponent<Image>().sprite = currentTower.GetComponentInChildren<SpriteRenderer>().sprite;
+    }
+
+    void changeGunUI()
+    {
+        GameObject image = GameObject.FindGameObjectWithTag("gunUI");
+
+        if (weaponswitch == 0)
+        {
+            image.GetComponent<Image>().sprite = BombProjectile.GetComponentInChildren<SpriteRenderer>().sprite;
+        }
+        else if (weaponswitch == 1)
+        {
+            image.GetComponent<Image>().sprite = OrbProjectile.GetComponentInChildren<SpriteRenderer>().sprite;
+        }
+        else if (weaponswitch == 2)
+        {
+            image.GetComponent<Image>().sprite = TargetProjectile.GetComponentInChildren<SpriteRenderer>().sprite;
+        }
+    }
 }
