@@ -43,7 +43,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -63,7 +63,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wizards: 1
   powerPerWiz: 10
-  shotDelay: 803
+  shotDelay: 1000
   SpawnedEnitity: {fileID: 2192739248297495550, guid: 73dd561e234d2cc4f84ed36131c1f2fc,
     type: 3}
   Projectile: {fileID: 2664303195133892020, guid: a213e5d5472f04045aa394ad3ad4080d,
