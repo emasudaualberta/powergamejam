@@ -8,9 +8,12 @@ public class Wizard : MonoBehaviour
     public float moveSpeed = 5f;
     private Rigidbody2D rb;
     private Vector2 movement;
+    private bool onGrass = false;
 
     public GameObject BombProjectile;
     public GameObject OrbProjectile;
+    [SerializeField] private GameObject currentTower;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -54,6 +57,10 @@ public class Wizard : MonoBehaviour
                 InstantiateOrb();
             }
         }
+        if(Input.GetKeyDown(KeyCode.F) && onGrass == true)
+        {
+            GameObject tower = Instantiate(currentTower, transform.position, Quaternion.identity);
+        }
     }
     void InstantiateBomb()
     {
@@ -89,6 +96,18 @@ public class Wizard : MonoBehaviour
     {
         // Apply movement
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+    }
+
+    void OnTriggerEnter2D(Collider2D target)
+    {
+        Debug.Log(target.transform.name);
+        onGrass = true;
+    }
+
+    void OnTriggerExit2D(Collider2D target)
+    {
+        Debug.Log(target.transform.name);
+        onGrass = false;
     }
 
 }
