@@ -6,6 +6,7 @@ public class trackingbullet : MonoBehaviour
 {
 
     public GameObject trackingObject;
+    public int damage = 50;
     Vector3 lastpos;
     // Start is called before the first frame update
     void Start()
@@ -31,5 +32,13 @@ public class trackingbullet : MonoBehaviour
         }
        
         transform.position = Vector3.MoveTowards(transform.position, lastpos, 6 * Time.deltaTime);
+    }
+
+    void OnTriggerEnter2D(Collider2D collision) {
+        GameObject tHit = collision.gameObject;
+        if (collision.tag == "enemy") {
+            tHit.GetComponent<enemyMover>().TakeDamage(damage);
+            Destroy(gameObject);
+        } 
     }
 }
