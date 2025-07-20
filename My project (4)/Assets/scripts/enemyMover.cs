@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class enemyMover : MonoBehaviour
 {
-    
+    [SerializeField] private int manaReward = 1;
+    [SerializeField] private int powerReward = 1;
+
+
     point.direction currentdirection;
     int xdir=1;
     int ydir =0;
@@ -67,5 +70,10 @@ public class enemyMover : MonoBehaviour
     void Update()
     {
         transform.position += new Vector3(xdir * Time.deltaTime*speed, ydir * Time.deltaTime * speed,0);
+    }
+
+    private void OnDestroy()
+    {
+        GameResource.Instance.KillReward(manaReward, powerReward);
     }
 }

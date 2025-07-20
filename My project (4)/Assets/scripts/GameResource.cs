@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class GameResource : MonoBehaviour
@@ -68,8 +69,8 @@ public class NaturalResourceGeneration : MonoBehaviour
     [SerializeField] private float recoveryInterval = 2.5f;
     [SerializeField] private int manaRecoveryAmount = 1;
     [SerializeField] private int powerRecoveryAmount = 1;
-    [SerializeField] private Player player;
-    [SerializeField] private Generator generator;
+    //[SerializeField] private Player player;
+    //[SerializeField] private Generator generator;
 
     private void Start()
     {
@@ -83,8 +84,8 @@ public class NaturalResourceGeneration : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(recoveryInterval);
-            int manaRecovery = manaRecoveryAmount * player.level;
-            int powerRecovery = powerRecoveryAmount * generator.level;
+            int manaRecovery = manaRecoveryAmount; //make sure to multiply by player lvl later
+            int powerRecovery = powerRecoveryAmount;
             if (GameResource.Instance != null)
             {
                 GameResource.Instance.AddMana(manaRecoveryAmount);
