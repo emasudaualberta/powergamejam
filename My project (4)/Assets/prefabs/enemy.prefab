@@ -46,6 +46,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa59751b2763cc14a8b4552d893275d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manaReward: 1
+  powerReward: 1
+  speed: 5
+  health: 100
+  explode: {fileID: 3986762540778233181, guid: 64d2e71a025b5a441894c7af2a40946a, type: 3}
 --- !u!212 &2749793332326831859
 SpriteRenderer:
   m_ObjectHideFlags: 0
