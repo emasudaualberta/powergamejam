@@ -13762,6 +13762,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 169638500}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1097208101 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2559534926506358235, guid: 9a8a436815b19834b978d7bac3101c55,
+    type: 3}
+  m_PrefabInstance: {fileID: 1963891457}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1169871054
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15120,13 +15126,28 @@ PrefabInstance:
         type: 3}
       propertyPath: currentTower
       value: 
-      objectReference: {fileID: 289791058}
+      objectReference: {fileID: 1097208101}
     - target: {fileID: 8247814812809819683, guid: 62f3d0cfcbf818a42a4019dff0389fb3,
         type: 3}
       propertyPath: BombProjectile
       value: 
       objectReference: {fileID: 8536792001148750631, guid: ddd2a4bda72e171438af476482d0297a,
         type: 3}
+    - target: {fileID: 8247814812809819683, guid: 62f3d0cfcbf818a42a4019dff0389fb3,
+        type: 3}
+      propertyPath: validTowers.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8247814812809819683, guid: 62f3d0cfcbf818a42a4019dff0389fb3,
+        type: 3}
+      propertyPath: validTowers.Array.data[0]
+      value: 
+      objectReference: {fileID: 289791058}
+    - target: {fileID: 8247814812809819683, guid: 62f3d0cfcbf818a42a4019dff0389fb3,
+        type: 3}
+      propertyPath: validTowers.Array.data[1]
+      value: 
+      objectReference: {fileID: 1097208101}
     - target: {fileID: 8247814812809819686, guid: 62f3d0cfcbf818a42a4019dff0389fb3,
         type: 3}
       propertyPath: m_Name

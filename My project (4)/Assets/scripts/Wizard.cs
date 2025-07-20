@@ -13,6 +13,8 @@ public class Wizard : MonoBehaviour
     public GameObject BombProjectile;
     public GameObject OrbProjectile;
     [SerializeField] private GameObject currentTower;
+    [SerializeField] private GameObject[] validTowers;
+    private int towerIndex = 0;
 
     void Start()
     {
@@ -60,6 +62,26 @@ public class Wizard : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.F) && onGrass == true)
         {
             GameObject tower = Instantiate(currentTower, transform.position, Quaternion.identity);
+        }
+        if(Input.GetKeyDown(KeyCode.Q))
+        {
+            if(towerIndex <= 0)
+            {
+                towerIndex = validTowers.Length;
+            } else {
+                towerIndex -= 1;
+            }
+            currentTower = validTowers[towerIndex];
+        }
+        if(Input.GetKeyUp(KeyCode.E))
+        {
+            if(towerIndex >= (validTowers.Length - 1))
+            {
+                towerIndex = 0;
+            } else {
+                towerIndex += 1;
+            }
+            currentTower = validTowers[towerIndex];
         }
     }
     void InstantiateBomb()
