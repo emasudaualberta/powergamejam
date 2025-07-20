@@ -5,7 +5,8 @@ using UnityEngine;
 public class trackingbullet : MonoBehaviour
 {
 
-    GameObject trackingObject;
+    public GameObject trackingObject;
+    Vector3 lastpos;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,14 +16,16 @@ public class trackingbullet : MonoBehaviour
     {
         trackingObject = target;
     }
-    
+
     // Update is called once per frame
     void Update()
     {
-        if (trackingObject != null) {
+        if (trackingObject != null)
+        {
+            lastpos = trackingObject.transform.position;
 
         }
         Debug.Log("asdfa");
-        transform.position += Vector3.forward * Time.deltaTime;
+        transform.position = Vector3.MoveTowards(transform.position, lastpos, 6 * Time.deltaTime);
     }
 }
