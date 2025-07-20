@@ -17,7 +17,7 @@ public class TargetProjectile : MonoBehaviour
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousey = mousePos.y;
         Invoke("spawnplane", 2);
-        Destroy(gameObject, 5);
+        Destroy(gameObject, 7);
     }
 
     // Update is called once per frame
@@ -36,6 +36,7 @@ public class TargetProjectile : MonoBehaviour
     }
     void spawnbomb()
     {
+        Debug.Log($"Spawning bomb at {transform.position}");
         GameObject explode = Instantiate(BombExplosion, transform.position, Quaternion.identity);
         Destroy(explode, 0.3f);
     }
