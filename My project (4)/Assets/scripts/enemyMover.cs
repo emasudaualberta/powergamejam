@@ -85,6 +85,6 @@ public class enemyMover : MonoBehaviour
      void OnDestroy()
     {
         
-        //GameResource.Instance.KillReward(manaReward, powerReward);
+        GameResource.Instance.KillReward(manaReward, powerReward);
     }
 }
