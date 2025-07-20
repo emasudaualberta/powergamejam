@@ -37,8 +37,14 @@ public class wizardpile : MonoBehaviour
         }
 
         if (enemyQ.Count > 0 && cooldown <= 0f) {
-        ShootAt(enemyQ[0].gameObject);
-        cooldown = shotDelay/wizards;
+
+            if (enemyQ[0] != null) {
+                ShootAt(enemyQ[0].gameObject);
+                cooldown = shotDelay/wizards;
+
+            } else {
+                enemyQ.RemoveAt(0);
+            }
         }
     }
     
