@@ -7,24 +7,21 @@ public class dummyscript : MonoBehaviour
     //public Tilemap _tileset;
     //public Vector3 _tilepos;
     // Update is called once per frame
+    // im going to kill myself
     void OnTriggerEnter2D(Collider2D target)
     {
-        Debug.Log("Trigger!");
-        Debug.Log(target.name);
-        Debug.Log(target.transform.position);
+        if(Input.GetKey(KeyCode.F))
+        {
+            Debug.Log("loll");
+        }
     }
-
-    void OnColliderEnter2D(Collider2D target)
+    /*
+    void Update()
     {
-        Debug.Log("Collider!");
-        Debug.Log(target.name);
-        Debug.Log(target.transform.position);
+        if(Input.GetKey(KeyCode.F))
+        {
+            Debug.Log("loll");
+        }
     }
-
-    void OnCollisionStay2d(Collider2D target)
-    {
-        Debug.Log("ColliderStay!");
-        Debug.Log(target.name);
-        Debug.Log(target.transform.position);
-    }
+    */
 }
