@@ -178,8 +178,10 @@ public class Wizard : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D target)
     {
-        Debug.Log(target.transform.name);
-        onGrass = false;
+        if(target.transform.name == "Tilemap")
+        {
+            onGrass = false;
+        }  
     }
 
     public int GetMana()
