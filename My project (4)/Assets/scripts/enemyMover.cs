@@ -28,7 +28,7 @@ public class enemyMover : MonoBehaviour
         {
             if (movepoint.isEnd) {
                 gameManager.Instance.hp -= 1;
-                Debug.Log(gameManager.Instance.hp);
+                // Debug.Log(gameManager.Instance.hp);
                 Destroy(gameObject);
             }
             changeDirection(movepoint.sendDirection);

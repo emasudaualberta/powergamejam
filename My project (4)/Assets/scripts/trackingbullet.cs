@@ -49,7 +49,7 @@ public class trackingbullet : MonoBehaviour
 
     void OnDestroy() {
         if (explodes){
-        Debug.Log("BOOMB");
+        //Debug.Log("BOOMB");
         Instantiate(explosion,transform.position, Quaternion.identity);
         }
     }

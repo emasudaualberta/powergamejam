@@ -11,7 +11,7 @@ public class explode : MonoBehaviour
     public float range;
     void Start()
     {
-        Debug.Log(transform.position);
+        //Debug.Log(transform.position);
         if (damage != 0 && range != 0f) {
             CircleCollider2D cc = gameObject.AddComponent<CircleCollider2D>();
             cc.isTrigger = true;

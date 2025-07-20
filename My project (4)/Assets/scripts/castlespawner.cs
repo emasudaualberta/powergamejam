@@ -33,7 +33,7 @@ public class castlespawner : MonoBehaviour
                 instantiateEnemy(action);
             }
         }
-        Debug.Log("end");
+        //Debug.Log("end");
 
     }
 
