@@ -11,7 +11,7 @@ public class enemyMover : MonoBehaviour
     point.direction currentdirection;
     int xdir=1;
     int ydir =0;
-    int speed=5;
+    public int speed=5;
     public int health=100;
 
     // Start is called before the first frame update
