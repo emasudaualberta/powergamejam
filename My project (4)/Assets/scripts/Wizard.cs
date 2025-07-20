@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class wizardMovement : MonoBehaviour
+public class Wizard : MonoBehaviour
 {
     public float moveSpeed = 5f;
     private Rigidbody2D rb;
@@ -13,11 +13,11 @@ public class wizardMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         if (rb == null)
         {
-            Debug.LogError("Rigidbody2D not found!");
+            Debug.LogError("afgsh");
         }
     }
 
-    void Update()
+    void Movement()
     {
         // Get WASD input
         movement.x = Input.GetAxisRaw("Horizontal"); // A/D or Left/Right
@@ -32,5 +32,9 @@ public class wizardMovement : MonoBehaviour
     {
         // Apply movement
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+    }
+    void Shoot()
+    {
+
     }
 }
