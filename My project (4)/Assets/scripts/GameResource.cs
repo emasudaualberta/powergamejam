@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using TMPro;
 
 public class GameResource : MonoBehaviour
 {
@@ -12,6 +13,13 @@ public class GameResource : MonoBehaviour
     [SerializeField] private int manaAmount;
     [SerializeField] private int powerAmount;
 
+    [SerializeField] private float recoveryInterval = 4.5f;
+    [SerializeField] private int manaRecoveryAmount = 3;
+    [SerializeField] private int powerRecoveryAmount = 1;
+
+    public TMP_Text manaText;
+    public TMP_Text powerText;
+
     private void Awake()
     {
         if (Instance == null)
@@ -20,10 +28,43 @@ public class GameResource : MonoBehaviour
             Destroy(gameObject);
     }
 
+    private void Start()
+    {
+        manaAmount = 10;
+        powerAmount = 10;
+        StartCoroutine(ManaRecovery());
+        StartCoroutine(PowerRecovery());
+        if (manaText != null)
+            UpdateDisplayMana();
+        if (powerText != null)
+            UpdateDisplayPower();
+        OnManaChanged += UpdateDisplayMana;
+        OnPowerChanged += UpdateDisplayPower;
+    }
+
+    private IEnumerator ManaRecovery()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(2f); // mana every 2 seconds
+            AddMana(manaRecoveryAmount);
+        }
+    }
+
+    private IEnumerator PowerRecovery()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(5f); // power every 5 seconds
+            AddPower(powerRecoveryAmount);
+        }
+    }
+
     public void AddMana(int amount)
     {
         manaAmount += amount;
         OnManaChanged?.Invoke();
+
     }
 
     public void AddPower(int amount)
@@ -62,35 +103,22 @@ public class GameResource : MonoBehaviour
         AddMana(mana);
         AddPower(power);
     }
-}
 
-public class NaturalResourceGeneration : MonoBehaviour
-{
-    [SerializeField] private float recoveryInterval = 2.5f;
-    [SerializeField] private int manaRecoveryAmount = 1;
-    [SerializeField] private int powerRecoveryAmount = 1;
-    //[SerializeField] private Player player;
-    //[SerializeField] private Generator generator;
-
-    private void Start()
+    private void UpdateDisplayMana()
     {
-        StartCoroutine(NaturalRecovery());
+        if (manaText != null)
+            manaText.text = manaAmount.ToString();
     }
 
-
-
-    private IEnumerator NaturalRecovery()
+    private void UpdateDisplayPower()
     {
-        while (true)
-        {
-            yield return new WaitForSeconds(recoveryInterval);
-            int manaRecovery = manaRecoveryAmount; //make sure to multiply by player lvl later
-            int powerRecovery = powerRecoveryAmount;
-            if (GameResource.Instance != null)
-            {
-                GameResource.Instance.AddMana(manaRecoveryAmount);
-                GameResource.Instance.AddPower(powerRecoveryAmount);
-            }
-        }
+        if (powerText != null)
+            powerText.text = powerAmount.ToString();
+    }
+
+    private void OnDestroy()
+    {
+        OnManaChanged -= UpdateDisplayMana;
+        OnPowerChanged -= UpdateDisplayPower;
     }
 }
