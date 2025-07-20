@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trackingObject: {fileID: 0}
   speed: 0.2
-  damage: 100
+  damage: 150
   explodes: 0
   explosion: {fileID: 3986762540778233181, guid: 8d847411f30ba4f40a07f843c83b2f0a,
     type: 3}

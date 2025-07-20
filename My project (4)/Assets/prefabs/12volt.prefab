@@ -49,7 +49,7 @@ MonoBehaviour:
   manaReward: 1
   powerReward: 1
   speed: 3
-  health: 1000
+  health: 500
   explode: {fileID: 3986762540778233181, guid: 64d2e71a025b5a441894c7af2a40946a, type: 3}
 --- !u!212 &4605695463223562907
 SpriteRenderer:

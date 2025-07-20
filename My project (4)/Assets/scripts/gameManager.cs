@@ -8,7 +8,8 @@ public class gameManager : MonoBehaviour
 {
     // Start is called before the first frame update
     public float gamespeed = 0.7f; //time taken to complete a spawn action
-    public int hp = 100;
+    public int hp = 26;
+    public int spawnersDone = 0;
     void Start()
     {
         takeDamage();
@@ -26,6 +27,15 @@ public class gameManager : MonoBehaviour
             }
 
             return _instance;
+        }
+    }
+
+    public void doneSpawn()
+    {
+        spawnersDone++;
+        if (spawnersDone > 3)
+        {
+            SceneManager.LoadScene(3);
         }
     }
 
