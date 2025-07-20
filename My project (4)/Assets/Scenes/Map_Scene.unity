@@ -13737,6 +13737,21 @@ PrefabInstance:
       propertyPath: facing
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 5607998018761519757, guid: 880a09f212ff1d041b7727fbb768e0ea,
+        type: 3}
+      propertyPath: waves.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5607998018761519757, guid: 880a09f212ff1d041b7727fbb768e0ea,
+        type: 3}
+      propertyPath: waves.Array.data[1]
+      value: 1..1..1..111
+      objectReference: {fileID: 0}
+    - target: {fileID: 5607998018761519757, guid: 880a09f212ff1d041b7727fbb768e0ea,
+        type: 3}
+      propertyPath: waves.Array.data[2]
+      value: ..........22222
+      objectReference: {fileID: 0}
     - target: {fileID: 5607998018761519758, guid: 880a09f212ff1d041b7727fbb768e0ea,
         type: 3}
       propertyPath: m_Name
@@ -13903,6 +13918,27 @@ PrefabInstance:
         type: 3}
       propertyPath: facing
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5607998018761519757, guid: 880a09f212ff1d041b7727fbb768e0ea,
+        type: 3}
+      propertyPath: enemyTwo
+      value: 
+      objectReference: {fileID: 4605695463223562906, guid: f231c73e03861b6498fd018b01c292d2,
+        type: 3}
+    - target: {fileID: 5607998018761519757, guid: 880a09f212ff1d041b7727fbb768e0ea,
+        type: 3}
+      propertyPath: waves.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5607998018761519757, guid: 880a09f212ff1d041b7727fbb768e0ea,
+        type: 3}
+      propertyPath: waves.Array.data[1]
+      value: 12.12.2.1.1.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5607998018761519757, guid: 880a09f212ff1d041b7727fbb768e0ea,
+        type: 3}
+      propertyPath: waves.Array.data[2]
+      value: 22...11...22..
       objectReference: {fileID: 0}
     - target: {fileID: 5607998018761519758, guid: 880a09f212ff1d041b7727fbb768e0ea,
         type: 3}
@@ -14668,6 +14704,27 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5607998018761519757, guid: 880a09f212ff1d041b7727fbb768e0ea,
+        type: 3}
+      propertyPath: enemyTwo
+      value: 
+      objectReference: {fileID: 4605695463223562906, guid: f231c73e03861b6498fd018b01c292d2,
+        type: 3}
+    - target: {fileID: 5607998018761519757, guid: 880a09f212ff1d041b7727fbb768e0ea,
+        type: 3}
+      propertyPath: waves.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5607998018761519757, guid: 880a09f212ff1d041b7727fbb768e0ea,
+        type: 3}
+      propertyPath: waves.Array.data[1]
+      value: 111111111
+      objectReference: {fileID: 0}
+    - target: {fileID: 5607998018761519757, guid: 880a09f212ff1d041b7727fbb768e0ea,
+        type: 3}
+      propertyPath: waves.Array.data[2]
+      value: 1..1..1..111
+      objectReference: {fileID: 0}
     - target: {fileID: 5607998018761519758, guid: 880a09f212ff1d041b7727fbb768e0ea,
         type: 3}
       propertyPath: m_Name
@@ -14889,6 +14946,27 @@ PrefabInstance:
         type: 3}
       propertyPath: facing
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5607998018761519757, guid: 880a09f212ff1d041b7727fbb768e0ea,
+        type: 3}
+      propertyPath: enemyTwo
+      value: 
+      objectReference: {fileID: 4605695463223562906, guid: f231c73e03861b6498fd018b01c292d2,
+        type: 3}
+    - target: {fileID: 5607998018761519757, guid: 880a09f212ff1d041b7727fbb768e0ea,
+        type: 3}
+      propertyPath: waves.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5607998018761519757, guid: 880a09f212ff1d041b7727fbb768e0ea,
+        type: 3}
+      propertyPath: waves.Array.data[1]
+      value: 12121212
+      objectReference: {fileID: 0}
+    - target: {fileID: 5607998018761519757, guid: 880a09f212ff1d041b7727fbb768e0ea,
+        type: 3}
+      propertyPath: waves.Array.data[2]
+      value: 1..1..1..111
       objectReference: {fileID: 0}
     - target: {fileID: 5607998018761519758, guid: 880a09f212ff1d041b7727fbb768e0ea,
         type: 3}

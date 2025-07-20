@@ -9,7 +9,7 @@ public class castlespawner : MonoBehaviour
     public GameObject enemyOne;
     public GameObject enemyTwo;
      float gameSpeed;
-    public string wave= "1..1..1..111";
+    public List<string> waves= new List<string> { "1..1..1..111" };
     public point.direction facing;
     void Awake()
     {
@@ -20,18 +20,22 @@ public class castlespawner : MonoBehaviour
     IEnumerator ReadEnemyWave()
     {
         yield return new WaitForSecondsRealtime(10);
-
-        foreach(char action in wave)
+        foreach (string wave in waves)
         {
-            if (action == '.')
+            foreach (char action in wave)
             {
-                yield return new WaitForSecondsRealtime(gameSpeed);
+                if (action == '.')
+                {
+                    yield return new WaitForSecondsRealtime(gameSpeed);
+                }
+                else
+                {
+                    instantiateEnemy(action);
+                    yield return new WaitForSecondsRealtime(gameSpeed);
+                    
+                }
             }
-            else
-            {
-                yield return new WaitForSecondsRealtime(gameSpeed);
-                instantiateEnemy(action);
-            }
+            yield return new WaitForSecondsRealtime(5);
         }
         Debug.Log("end");
 

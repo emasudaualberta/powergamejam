@@ -5,7 +5,7 @@ using UnityEngine;
 public class gameManager : MonoBehaviour
 {
     // Start is called before the first frame update
-    public float gamespeed = 0.5f; //time taken to complete a spawn action
+    public float gamespeed = 0.7f; //time taken to complete a spawn action
     public int hp = 100;
     void Start()
     {
