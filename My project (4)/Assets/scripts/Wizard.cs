@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Wizard : MonoBehaviour
 {
@@ -25,6 +26,8 @@ public class Wizard : MonoBehaviour
         {
             Debug.LogError("afgsh");
         }
+        changetowerui();
+        changeGunUI();
     }
 
     void Movement()
@@ -50,6 +53,7 @@ public class Wizard : MonoBehaviour
             {
                 weaponswitch = 0;
             }
+            changeGunUI();
         }
         if (Input.GetKeyDown(KeyCode.R))
         {
@@ -74,10 +78,11 @@ public class Wizard : MonoBehaviour
         {
             if(towerIndex <= 0)
             {
-                towerIndex = validTowers.Length;
+                towerIndex = validTowers.Length-1;
             } else {
                 towerIndex -= 1;
             }
+            changetowerui();
             currentTower = validTowers[towerIndex];
         }
         if(Input.GetKeyUp(KeyCode.E))
@@ -148,5 +153,30 @@ public class Wizard : MonoBehaviour
     {
         return this.maxMana;
     }
+    public GameObject getCurrentTower()
+    {
+        return this.currentTower;
+    }
 
+    void changetowerui()
+    {
+        GameObject image = GameObject.FindGameObjectWithTag("towerimage");
+        image.GetComponent<Image>().sprite = currentTower.GetComponentInChildren<SpriteRenderer>().sprite;
+    }
+
+    void changeGunUI()
+    {
+        GameObject image = GameObject.FindGameObjectWithTag("gunUI");
+
+        if (weaponswitch == 0)
+        {
+            image.GetComponent<Image>().sprite = BombProjectile.GetComponentInChildren<SpriteRenderer>().sprite;
+        }
+        else if (weaponswitch == 1)
+        {
+            image.GetComponent<Image>().sprite = OrbProjectile.GetComponentInChildren<SpriteRenderer>().sprite;
+        }
+        else if (weaponswitch == 2) { }
+        
+    }
 }
