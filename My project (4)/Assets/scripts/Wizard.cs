@@ -13,6 +13,7 @@ public class Wizard : MonoBehaviour
     private Vector2 movement;
     private bool onGrass = false;
 
+    public GameObject TargetProjectile;
     public GameObject BombProjectile;
     public GameObject OrbProjectile;
     [SerializeField] private GameObject currentTower;
@@ -44,12 +45,15 @@ public class Wizard : MonoBehaviour
     {
         //r to shoot bombs
         Movement();
-        if(Input.GetKeyDown(KeyCode.E))
+        if(Input.GetKeyDown(KeyCode.V))
         {
             if (weaponswitch == 0)
             {
                 weaponswitch = 1;
             } else if (weaponswitch == 1)
+            {
+                weaponswitch = 2;
+            } else if (weaponswitch == 2)
             {
                 weaponswitch = 0;
             }
@@ -63,6 +67,9 @@ public class Wizard : MonoBehaviour
             } else if (weaponswitch == 1)
             {
                 InstantiateOrb();
+            } else if (weaponswitch == 2)
+            {
+                InstantiatePlane();
             }
         }
         if(Input.GetKeyDown(KeyCode.F) && onGrass == true)
@@ -124,6 +131,19 @@ public class Wizard : MonoBehaviour
         if (rbProjectile != null)
         {
             rbProjectile.velocity = direction * 9;
+        }
+    }
+    void InstantiatePlane()
+    {
+        //get mouse position
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePos.z = 0;
+        //create target an shoot them in direction
+        GameObject Target = Instantiate(TargetProjectile, mousePos, Quaternion.identity);
+        Rigidbody2D rbProjectile = Target.GetComponent<Rigidbody2D>();
+        if (rbProjectile != null)
+        {
+            rbProjectile.velocity = Vector2.zero;
         }
     }
     void FixedUpdate()

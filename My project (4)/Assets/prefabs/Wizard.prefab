@@ -145,8 +145,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponswitch: 0
   moveSpeed: 5
+  TargetProjectile: {fileID: 5634848259198352609, guid: ab273bf9b0ea17143a2d2de97de96d8c,
+    type: 3}
   BombProjectile: {fileID: 8536792001148750631, guid: ddd2a4bda72e171438af476482d0297a,
     type: 3}
   OrbProjectile: {fileID: 6549359541176613555, guid: 770a324ea97ee834f8195b908b6e03d7,
     type: 3}
-  projectileSpeed: 6
