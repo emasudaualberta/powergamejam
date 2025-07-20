@@ -7,7 +7,7 @@ public class gridManager : MonoBehaviour
     [SerializeField] private int width;
     [SerializeField] private int height;
 
-    [SerializeField] private Tile _tile;
+    [SerializeField] private tile _tile;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,12 +16,12 @@ public class gridManager : MonoBehaviour
 
     void GenerateGrid()
     {
-        for(i = 0; i < width; i++)
+        for(int i = 0; i < width; i++)
         {
-            for(j = 0; i < width; j++)
+            for(int j = 0; i < width; j++)
             {
-                var spawnedTile = Instantiate(_tile, new Vector3(x, y), Quaternion.identity);
-                spawnedTile.name = $"tile {x} {y}";
+                var spawnedTile = Instantiate(_tile, new Vector3(i, j), Quaternion.identity);
+                spawnedTile.name = $"tile {i} {j}";
             }
         }
     }
