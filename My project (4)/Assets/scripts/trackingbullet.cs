@@ -33,7 +33,7 @@ public class trackingbullet : MonoBehaviour
         }
 
         Vector3 delta = lastpos-transform.position;
-        transform.position = transform.position + delta.normalized*speed/20f;
+        transform.position = transform.position + delta.normalized*speed*Time.deltaTime*50f;
         transform.rotation = Quaternion.AngleAxis(Vector3.Angle(Vector3.up,delta)*Mathf.Sign(-delta.x), Vector3.forward);
     }
 

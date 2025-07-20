@@ -8,6 +8,8 @@ public class wizardpile : MonoBehaviour
 
     public int wizards = 1;
     public int powerPerWiz = 10;
+    [Range(0.0f,1000f)]
+    public float shotDelay = 500f;
     int combatpower;
     float cooldown = 0f;
     List<Collider2D> enemyQ;
@@ -31,12 +33,12 @@ public class wizardpile : MonoBehaviour
     {
 
         if (cooldown > 0f){
-        cooldown -= 1.0f;
+        cooldown -= 500.0f*Time.deltaTime;
         }
 
         if (enemyQ.Count > 0 && cooldown <= 0f) {
         ShootAt(enemyQ[0].gameObject);
-        cooldown = 500f/wizards;
+        cooldown = shotDelay/wizards;
         }
     }
     
