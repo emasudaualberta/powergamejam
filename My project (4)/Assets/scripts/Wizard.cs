@@ -89,8 +89,9 @@ public class Wizard : MonoBehaviour
             } else {
                 towerIndex -= 1;
             }
-            changetowerui();
+            
             currentTower = validTowers[towerIndex];
+            changetowerui();
         }
         if(Input.GetKeyUp(KeyCode.E))
         {
@@ -101,6 +102,7 @@ public class Wizard : MonoBehaviour
                 towerIndex += 1;
             }
             currentTower = validTowers[towerIndex];
+            changetowerui();
         }
     }
     void InstantiateBomb()
