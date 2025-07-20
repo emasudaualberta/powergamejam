@@ -25,7 +25,11 @@ public class trackingbullet : MonoBehaviour
             lastpos = trackingObject.transform.position;
 
         }
-        Debug.Log("asdfa");
+        else
+        {
+            Destroy(gameObject);
+        }
+       
         transform.position = Vector3.MoveTowards(transform.position, lastpos, 6 * Time.deltaTime);
     }
 }

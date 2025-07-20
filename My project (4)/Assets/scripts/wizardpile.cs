@@ -24,7 +24,7 @@ public class wizardpile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        AddWizard();
+        //AddWizard();
 
         if (cooldown > 0f){
         cooldown -= 1.0f;

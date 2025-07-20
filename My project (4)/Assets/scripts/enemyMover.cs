@@ -12,6 +12,7 @@ public class enemyMover : MonoBehaviour
     int xdir=1;
     int ydir =0;
     int speed=5;
+    public int health=100;
 
     // Start is called before the first frame update
     void Start()
@@ -31,7 +32,16 @@ public class enemyMover : MonoBehaviour
             }
             changeDirection(movepoint.sendDirection);
 
+        }else if (collision.tag == "weapon")
+        {
+            
+            Destroy(collision.gameObject);
+            health -= 1000;
+            if (health < 0) {
+                Destroy(gameObject);
+            }
         }
+
        
 
 
@@ -72,6 +82,6 @@ public class enemyMover : MonoBehaviour
 
     private void OnDestroy()
     {
-        GameResource.Instance.KillReward(manaReward, powerReward);
+        //GameResource.Instance.KillReward(manaReward, powerReward);
     }
 }
