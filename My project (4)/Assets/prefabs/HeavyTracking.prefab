@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2664303195133892023}
   - component: {fileID: 823826662223593681}
   m_Layer: 0
-  m_Name: BombTracking
+  m_Name: HeavyTracking
   m_TagString: weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,9 +46,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trackingObject: {fileID: 0}
-  speed: 0.3
-  damage: 50
-  explodes: 1
+  speed: 0.2
+  damage: 100
+  explodes: 0
   explosion: {fileID: 3986762540778233181, guid: 8d847411f30ba4f40a07f843c83b2f0a,
     type: 3}
 --- !u!212 &2664303195133892023
@@ -90,7 +90,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: df1fb815a9b07dd44aa96fdf45b5b2d8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e5fc8236e2e803643b3770036d223474, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

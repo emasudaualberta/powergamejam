@@ -43,11 +43,17 @@ public class wizardpile : MonoBehaviour
     }
     
     void OnTriggerEnter2D(Collider2D enemy) {
+        if (enemy.tag == "enemy") 
+        {
         enemyQ.Add(enemy);
+        }
     }
 
     void OnTriggerExit2D(Collider2D enemy) {
+        if (enemy.tag == "enemy") 
+        {
         enemyQ.Remove(enemy);
+        }
     }
 
     void AddWizard() {
