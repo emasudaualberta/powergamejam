@@ -8,6 +8,8 @@ TagManager:
   - weapon
   - towerimage
   - gunUI
+  - mana
+  - hp
   layers:
   - Default
   - TransparentFX
