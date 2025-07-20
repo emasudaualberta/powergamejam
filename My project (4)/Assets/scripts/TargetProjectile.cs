@@ -17,7 +17,7 @@ public class TargetProjectile : MonoBehaviour
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousey = mousePos.y;
         Invoke("spawnplane", 2);
-        Destroy(gameObject, 15);
+        Destroy(gameObject, 5);
     }
 
     // Update is called once per frame
