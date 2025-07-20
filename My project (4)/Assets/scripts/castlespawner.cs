@@ -19,7 +19,7 @@ public class castlespawner : MonoBehaviour
 
     IEnumerator ReadEnemyWave()
     {
-        yield return new WaitForSecondsRealtime(gameSpeed);
+        yield return new WaitForSecondsRealtime(10);
 
         foreach(char action in wave)
         {
