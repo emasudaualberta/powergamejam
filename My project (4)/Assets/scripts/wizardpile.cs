@@ -55,6 +55,12 @@ public class wizardpile : MonoBehaviour
     void ShootAt(GameObject target) {
         //Bullet proj = Instantiate(Projectile, this.transform);
         //proj.target = target;
+        GameObject proj = Instantiate(Projectile,transform);
+        if (proj.GetComponent<trackingbullet>() != null) {
+            proj.GetComponent<trackingbullet>().setTarget(target);
+
+
+        }
     }
 
 
