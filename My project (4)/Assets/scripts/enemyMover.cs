@@ -12,30 +12,30 @@ public class enemyMover : MonoBehaviour
     int xdir=1;
     int ydir =0;
     int speed=5;
+    public int health=100;
 
     // Start is called before the first frame update
     void Start()
     {
         
     }
+
     void OnTriggerEnter2D(Collider2D collision)
     {
         point movepoint = collision.gameObject.GetComponent<point>();
         if ( movepoint!= null)
         {
-
             if (movepoint.isEnd) {
                 gameManager.Instance.hp -= 1;
                 Debug.Log(gameManager.Instance.hp);
                 Destroy(gameObject);
             }
             changeDirection(movepoint.sendDirection);
-
-        }
-       
-
+        } 
 
     }
+
+
     public void changeDirection(point.direction newDirection)
     {
         switch (newDirection)
@@ -59,10 +59,17 @@ public class enemyMover : MonoBehaviour
                 break;
 
         }
-
-
     }
    
+    public void TakeDamage(int dmg)
+    {
+        health -= dmg;
+        if (health <= 0) {
+                Destroy(gameObject);
+        }
+    } 
+
+
 
     // Update is called once per frame
     void Update()
@@ -72,6 +79,6 @@ public class enemyMover : MonoBehaviour
 
     private void OnDestroy()
     {
-        GameResource.Instance.KillReward(manaReward, powerReward);
+        //GameResource.Instance.KillReward(manaReward, powerReward);
     }
 }
