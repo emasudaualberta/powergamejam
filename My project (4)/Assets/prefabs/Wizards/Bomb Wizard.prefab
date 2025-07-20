@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 384082856003235186}
   - component: {fileID: 8865063981403154333}
   m_Layer: 0
-  m_Name: Assistant Wizard
+  m_Name: Bomb Wizard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -70,7 +70,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: ca1c919809818e84ea12ceb275870f4b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 17d0bf639e0566542968d7ad59553684, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

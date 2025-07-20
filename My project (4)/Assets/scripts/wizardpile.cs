@@ -8,6 +8,8 @@ public class wizardpile : MonoBehaviour
 
     public int wizards = 1;
     public int powerPerWiz = 10;
+    [Range(0.0f,1000f)]
+    public float shotDelay = 500f;
     int combatpower;
     float cooldown = 0f;
     List<Collider2D> enemyQ;
@@ -17,6 +19,11 @@ public class wizardpile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        for (int i = 1; i <= wizards; i++) { 
+        AddWizard(); 
+        wizards--;
+        }
+
         enemyQ = new List<Collider2D>();
         combatpower = wizards*powerPerWiz;
     }
@@ -24,15 +31,14 @@ public class wizardpile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //AddWizard();
 
         if (cooldown > 0f){
-        cooldown -= 1.0f;
+        cooldown -= 500.0f*Time.deltaTime;
         }
 
         if (enemyQ.Count > 0 && cooldown <= 0f) {
         ShootAt(enemyQ[0].gameObject);
-        cooldown = 100f;
+        cooldown = shotDelay/wizards;
         }
     }
     
