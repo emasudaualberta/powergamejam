@@ -2,20 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BombProjectile : MonoBehaviour
+public class OrbProjectile : MonoBehaviour
 {
-    public GameObject BombExplosion;
-    public int damage = 70;
+    public int damage = 50;
     // Start is called before the first frame update
     void Start()
     {
-        Destroy(gameObject, 3);
+        Destroy(gameObject, 2);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -24,9 +23,7 @@ public class BombProjectile : MonoBehaviour
         {
             tHit.GetComponent<enemyMover>().TakeDamage(damage);
             Destroy(gameObject);
-            GameObject explode = Instantiate(BombExplosion, transform.position, Quaternion.identity);
-            Destroy(explode, 0.3f);
-        
+
         }
     }
 }

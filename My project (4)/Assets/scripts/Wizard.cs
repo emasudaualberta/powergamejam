@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class Wizard : MonoBehaviour
 {
+    public int weaponswitch = 0;
     public float moveSpeed = 5f;
     private Rigidbody2D rb;
     private Vector2 movement;
 
     public GameObject BombProjectile;
-    public float projectileSpeed = 6f;
+    public GameObject OrbProjectile;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -21,7 +22,7 @@ public class Wizard : MonoBehaviour
 
     void Movement()
     {
-        // Get WASD input
+        // get WASD input
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical"); 
         if (movement.x > 0)
@@ -31,24 +32,57 @@ public class Wizard : MonoBehaviour
     }
     void Update()
     {
+        //r to shoot bombs
         Movement();
+        if(Input.GetKeyDown(KeyCode.E))
+        {
+            if (weaponswitch == 0)
+            {
+                weaponswitch = 1;
+            } else if (weaponswitch == 1)
+            {
+                weaponswitch = 0;
+            }
+        }
         if (Input.GetKeyDown(KeyCode.R))
         {
-            InstantiateBomb();
+            if (weaponswitch == 0)
+            {
+                InstantiateBomb();
+            } else if (weaponswitch == 1)
+            {
+                InstantiateOrb();
+            }
         }
     }
     void InstantiateBomb()
     {
+        //get mouse position
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z = 0;
-
+        //turn position into vector
         Vector2 direction = (mousePos - transform.position).normalized;
-    
-        GameObject Projectile = Instantiate(BombProjectile, transform.position, Quaternion.identity);
-        Rigidbody2D rbProjectile = Projectile.GetComponent<Rigidbody2D>();
+        //create bombs an shoot them in direction
+        GameObject bomb = Instantiate(BombProjectile, transform.position, Quaternion.identity);
+        Rigidbody2D rbProjectile = bomb.GetComponent<Rigidbody2D>();
         if (rbProjectile != null)
         {
-            rbProjectile.velocity = direction * projectileSpeed;
+            rbProjectile.velocity = direction * 6;
+        }
+    }
+    void InstantiateOrb()
+    {
+        //get mouse position
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePos.z = 0;
+        //turn position into vector
+        Vector2 direction = (mousePos - transform.position).normalized;
+        //create orb an shoot them in direction
+        GameObject orb = Instantiate(OrbProjectile, transform.position, Quaternion.identity);
+        Rigidbody2D rbProjectile = orb.GetComponent<Rigidbody2D>();
+        if (rbProjectile != null)
+        {
+            rbProjectile.velocity = direction * 9;
         }
     }
     void FixedUpdate()
