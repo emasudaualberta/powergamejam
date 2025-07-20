@@ -5,13 +5,17 @@ using UnityEngine.UI;
 
 public class Wizard : MonoBehaviour
 {
-    private int maxMana = 20;
-    private int mana = 20;
+    [SerializeField] private int maxMana = 20;
+    [SerializeField] private int mana;
+    [SerializeField] private float manaRegen = 1.0f;
+    private float timePeriod = 0f;
+
     public int weaponswitch = 0;
     public float moveSpeed = 5f;
     private Rigidbody2D rb;
     private Vector2 movement;
-    private bool onGrass = false;
+    // unserialize or u die
+    [SerializeField] private bool onGrass = false;
 
     public GameObject TargetProjectile;
     public GameObject BombProjectile;
@@ -22,6 +26,7 @@ public class Wizard : MonoBehaviour
 
     void Start()
     {
+        this.mana = maxMana;
         rb = GetComponent<Rigidbody2D>();
         if (rb == null)
         {
@@ -104,6 +109,15 @@ public class Wizard : MonoBehaviour
             currentTower = validTowers[towerIndex];
             changetowerui();
         }
+        if (timePeriod > manaRegen)
+        {
+            if(GetMana() < GetMaxMana())
+            {
+                this.mana += 1;
+                timePeriod = 0;
+            }
+        }
+        timePeriod += UnityEngine.Time.deltaTime;
     }
     void InstantiateBomb()
     {
