@@ -4,37 +4,39 @@ using UnityEngine;
 
 public class enemyMover : MonoBehaviour
 {
-    
+    [SerializeField] private int manaReward = 1;
+    [SerializeField] private int powerReward = 1;
+
+
     point.direction currentdirection;
     int xdir=1;
     int ydir =0;
-    int speed=5;
+    public int speed=5;
+    public int health=100;
+    public GameObject explode;
 
     // Start is called before the first frame update
     void Start()
     {
         
     }
+
     void OnTriggerEnter2D(Collider2D collision)
     {
-        //Debug.Log("as;df");
         point movepoint = collision.gameObject.GetComponent<point>();
         if ( movepoint!= null)
         {
-
             if (movepoint.isEnd) {
                 gameManager.Instance.hp -= 1;
-                //Debug.Log(gameManager.Instance.hp);
+                Debug.Log(gameManager.Instance.hp);
                 Destroy(gameObject);
             }
             changeDirection(movepoint.sendDirection);
-            //Debug.Log(collision.gameObject.name);
-
-        }
-       
-
+        } 
 
     }
+
+
     public void changeDirection(point.direction newDirection)
     {
         switch (newDirection)
@@ -58,14 +60,31 @@ public class enemyMover : MonoBehaviour
                 break;
 
         }
-
-
     }
    
+    public void TakeDamage(int dmg)
+    {
+        health -= dmg;
+        if (health <= 0) {
+            
+            GameObject boom =  Instantiate(explode);
+            boom.transform.position = transform.position;
+
+            Destroy(gameObject);
+        }
+    } 
+
+
 
     // Update is called once per frame
     void Update()
     {
         transform.position += new Vector3(xdir * Time.deltaTime*speed, ydir * Time.deltaTime * speed,0);
+    }
+
+     void OnDestroy()
+    {
+        
+        GameResource.Instance.KillReward(manaReward, powerReward);
     }
 }
